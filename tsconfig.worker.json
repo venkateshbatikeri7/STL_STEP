@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.worker.tsbuildinfo",
+    "target": "ES2022",
+    "lib": ["ES2023", "WebWorker"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+
+    "types": []
+  },
+  // The worker and the conversion pipeline. `src/lib` is shared with the UI
+  // project, so it is compiled here too rather than through project references
+  // — the pure modules need neither DOM nor WebWorker-specific globals.
+  "include": ["src/worker", "src/lib"],
+  "exclude": ["src/components", "src/state", "src/lib/**/*.test.ts"]
+}

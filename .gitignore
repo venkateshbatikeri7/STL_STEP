@@ -1,0 +1,9 @@
+node_modules/
+dist/
+public/occt/
+verify-output/
+*.local
+.DS_Store
+.vite/
+coverage/
+*.tsbuildinfo

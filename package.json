@@ -1,0 +1,41 @@
+{
+  "name": "stl-to-step",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Convert STL to STEP entirely in the browser. Your file never leaves your device.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "postinstall": "node scripts/sync-occt-wasm.mjs",
+    "predev": "node scripts/sync-occt-wasm.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/sync-occt-wasm.mjs",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "samples": "node scripts/gen-samples.mjs",
+    "verify:step": "vite-node scripts/verify-step.ts"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "replicad-opencascadejs": "^1.1.0",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4",
+    "vite-node": "^6.0.0",
+    "vitest": "^5.0.5"
+  }
+}
